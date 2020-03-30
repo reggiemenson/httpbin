@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: httbin-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+    - hosts:
+    #   - <domain> goes here
+    #   secretName: <secret> goes here
+  rules:
+#   - host: <domain> goes here
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: httpbin-service
+          servicePort: 80
